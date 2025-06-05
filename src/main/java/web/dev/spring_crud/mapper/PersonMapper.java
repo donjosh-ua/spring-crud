@@ -3,12 +3,13 @@ package web.dev.spring_crud.mapper;
 import java.util.List;
 
 import org.mapstruct.Mapper;
+import org.mapstruct.ReportingPolicy;
 import org.mapstruct.MappingConstants.ComponentModel;
 
 import web.dev.spring_crud.domain.dto.PersonDTO;
 import web.dev.spring_crud.domain.model.Person;
 
-@Mapper(componentModel = ComponentModel.SPRING)
+@Mapper(componentModel = ComponentModel.SPRING, unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface PersonMapper {
 
     // map dto to entity
