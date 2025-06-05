@@ -16,17 +16,21 @@ import web.dev.spring_crud.repository.PersonRepository;
 @RequiredArgsConstructor
 public class BillService {
 
-    private static BillMapper billMapper;
-    private static BillRepository billRepository;
-    private static PersonRepository personRepository;
+    private final BillMapper billMapper;
+    private final BillRepository billRepository;
+    private final PersonRepository personRepository;
 
     public List<BillDTO> getAllBills() {
         return billMapper.toDTOs(billRepository.findAll());
     }
 
+    public List<BillDTO> getBillsByPersonId(Long personId) {
+        return billMapper.toDTOs(billRepository.findAllByPersonId(personId));
+    }
+
     public BillDTO createBill(BillDTO billDTO) {
 
-        Person person = personRepository.findById(billDTO.id.longValue())
+        Person person = personRepository.findById(billDTO.personId.longValue())
                 .orElseThrow(() -> new RuntimeException("Person not found with id: " + billDTO.id));
 
         Bill bill = billMapper.toEntity(billDTO);
