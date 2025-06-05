@@ -8,5 +8,6 @@ public class BillDTO {
     public Float amount;
     public Date date;
     public String topic;
+    public Integer personId;
 
 }
