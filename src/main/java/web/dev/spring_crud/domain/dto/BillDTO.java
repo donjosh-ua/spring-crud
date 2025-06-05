@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class BillDTO {
 
+    public Integer id;
     public Float amount;
     public Date date;
     public String topic;

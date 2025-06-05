@@ -1,6 +1,6 @@
 package web.dev.spring_crud.mapper;
 
-import java.util.Set;
+import java.util.List;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingConstants.ComponentModel;
@@ -18,9 +18,9 @@ public interface BillMapper {
     BillDTO toDTO(Bill bill);
 
     // map set of dto to set of entity
-    Set<Bill> toEntitySet(Set<BillDTO> billDTOs);
+    List<Bill> toEntities(List<BillDTO> billDTOs);
 
     // map set of entity to set of dto
-    Set<BillDTO> toDTOSet(Set<Bill> bills);
+    List<BillDTO> toDTOs(List<Bill> bills);
 
 }
