@@ -26,7 +26,7 @@ public class BillController {
         return ResponseEntity.ok().body(billService.getAllBills());
     }
 
-    @GetMapping("/byPersonId/{personId}")
+    @GetMapping("/searchByPersonId/{personId}")
     public ResponseEntity<?> getBillsByPersonId(@PathVariable Long personId) {
         return ResponseEntity.ok().body(billService.getBillsByPersonId(personId));
     }
